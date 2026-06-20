@@ -1,0 +1,13 @@
+workflows:
+  jarvis-android-build:
+    name: Jarvis Android Build
+    instance_type: mac_mini_m2
+    scripts:
+      - name: Build APK
+        script: |
+          cd $CM_BUILD_DIR/android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
+      
